@@ -1,0 +1,3 @@
+*Verificar uso do selenium para teste em c#.
+*Aplicação de testes no projeto de referência da LevAsset.
+*Uso do Visual Studio como IDE para executar projetos e testes.

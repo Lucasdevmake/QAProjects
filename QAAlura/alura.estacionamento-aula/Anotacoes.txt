@@ -1,0 +1,49 @@
+Atributo [Theory]: Indica que o método é um teste que será executado várias vezes com diferentes conjuntos de dados. Isso é útil quando você quer 
+testar o mesmo comportamento com várias entradas diferentes.
+
+Atributo [InlineData]: Fornece os dados de entrada para o teste. Cada conjunto de dados é passado como parâmetros para o método de teste. Neste caso,
+existem três conjuntos de dados, cada um com quatro valores: proprietario, placa, cor e modelo.
+
+Assinatura do método ValidaFaturamentoVariosVeiculos: Este método é o teste em si. Ele recebe quatro parâmetros que correspondem aos dados de entrada
+fornecidos pelos atributos [InlineData]. Este método testará o comportamento esperado com base nos dados de entrada.
+
+Fase Arrange: Nesta fase, o código configura o ambiente de teste. No exemplo, uma instância da classe Patio é criada e um objeto Veiculo é configurado
+com os dados fornecidos.
+
+Fase Act: Esta fase é onde o comportamento que está sendo testado é executado. No exemplo, a entrada do veículo é registrada no estacionamento, em
+seguida, sua saída é registrada e, finalmente, o total faturado pelo estacionamento é calculado.
+
+Fase Assert: Aqui é onde os resultados do teste são verificados. No exemplo, o valor de faturamento é comparado com 2 usando o método Assert.Equal().
+Se os valores não forem iguais, o teste falhará.
+
+Links Úteis
+https://www.alura.com.br/conteudo/selenium-csharp-webdriver
+
+Alura: E-mail: galera@smn.com.br
+Senha: SMN@2017#o365
+
+
+Fact:
+
+Um método de teste marcado com [Fact] é considerado um fato, o que significa que representa uma afirmação sobre o comportamento do sistema que deve
+ser verdadeira para todos os casos de teste. Em outras palavras, um teste marcado com [Fact] é uma afirmação que deve ser testada apenas uma vez e
+não depende de parâmetros externos. Geralmente é usado para testes unitários simples e diretos.
+
+Theory:
+
+Um método de teste marcado com [Theory] é um teste parametrizado, o que significa que ele é executado várias vezes com diferentes conjuntos de dados
+de entrada. Cada conjunto de dados é fornecido por meio de atributos InlineData ou outras fontes de dados. Teorias são úteis quando você quer testar
+o mesmo comportamento com vários casos de entrada.
+
+
+[Trait] = categorizar e organizar testes em grupos ou categorias específicas o primeiro parâmetro ("Funcionalidade") é o nome da categoria ou grupo
+ao qual o teste pertence, e o segundo parâmetro ("Acelerar") é um valor específico atribuído a essa categoria.
+
+TDD Test-Driven Development, Desenvolvimento Orientado a Testes, é uma maneira de pensar o desenvolvimento de uma aplicação no qual cada nova funcionalidade
+criada é testada. Primeiro são criados os casos de teste em que não é implementado nada mais do que o necessário para que o teste falhe, depois é criado o
+método que deve realizar a ação e nesta implementação não deve ser utilizado nada mais que o necessário para que o teste falhe.
+
+Se você está tentando acessar uma propriedade de instância (veiculo) dentro de um método estático (TestaVeiculoTestes), você não poderá fazê-lo diretamente
+porque métodos estáticos pertencem à classe e não têm acesso direto a instâncias específicas da classe.
+
+Padronizando os testes - minuto 5:54
