@@ -1,43 +1,38 @@
-namespace QABuscaCepCorreio.Helper
+namespace QABuscaCepCorreio.Helper;
+
+public class LogWriter
 {
-    public class LogWriter
+    private readonly string path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName;
+
+    public LogWriter()
     {
-        // private string? m_exePath = string.Empty;
-        private string path;
+        // LogWrite(logMessage);
+    }
 
-        public LogWriter()
+    public void LogWrite(string logMessage)
+    {
+        try
         {
-            // LogWrite(logMessage);
+            using StreamWriter w = File.AppendText(path + "\\" + "log_test.txt");
+            Log(logMessage, w);
         }
-
-        public void LogWrite(string logMessage)
+        catch
         {
-            // m_exePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName;
-
-            try
-            {
-                using StreamWriter w = File.AppendText(path + "\\" + "log_test.txt");
-                Log(logMessage, w);
-            }
-            catch (Exception ex)
-            {
-            }
         }
+    }
 
-        public void Log(string logMessage, TextWriter txtWriter)
+    public void Log(string logMessage, TextWriter txtWriter)
+    {
+        try
         {
-            try
-            {
-                txtWriter.Write("\r\nLog Entry : ");
-                txtWriter.WriteLine("{0} {1}", DateTime.Now.ToLongTimeString(), DateTime.Now.ToLongDateString());
-                txtWriter.WriteLine(" ");
-                txtWriter.WriteLine("  *{0}", logMessage);
-                txtWriter.WriteLine("------------------------------------------------------------------------------------");
-            }
-            catch (Exception ex)
-            {
-            }
+            txtWriter.Write("\r\nLog Entry : ");
+            txtWriter.WriteLine("{0} {1}", DateTime.Now.ToLongTimeString(), DateTime.Now.ToLongDateString());
+            txtWriter.WriteLine(" ");
+            txtWriter.WriteLine("  *{0}", logMessage);
+            txtWriter.WriteLine("------------------------------------------------------------------------------------");
+        }
+        catch
+        {
         }
     }
 }

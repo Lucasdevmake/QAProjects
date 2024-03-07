@@ -7,6 +7,8 @@ existem três conjuntos de dados, cada um com quatro valores: proprietario, plac
 Assinatura do método ValidaFaturamentoVariosVeiculos: Este método é o teste em si. Ele recebe quatro parâmetros que correspondem aos dados de entrada
 fornecidos pelos atributos [InlineData]. Este método testará o comportamento esperado com base nos dados de entrada.
 
+PADRÃO AAA:
+
 Fase Arrange: Nesta fase, o código configura o ambiente de teste. No exemplo, uma instância da classe Patio é criada e um objeto Veiculo é configurado
 com os dados fornecidos.
 

@@ -2,27 +2,23 @@ using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using QABuscaCepCorreio.Helper;
-using QABuscaCepCorreioDesacopla.Core.Interface;
 
 namespace QABuscaCepCorreio.Core;
 
-// public class Begin : DSL
+// public class BaseTester : DSL
 public class BaseTester
 {
     public DSL dsl;
     public GlobalVariables globalVariables;
     public IWebDriver driver;
     public LogWriter logWriter;
-    // public IValidaPage _validaCepPage; // injeção de dependência do Page
 
     public BaseTester()
     {
         globalVariables = new GlobalVariables();
-        // driver = AbreNavegador();
         logWriter = new LogWriter();
     }
 
-    #region código AbreNavegador()
     [SetUp]
     public void AbreNavegador()
     {
@@ -42,10 +38,10 @@ public class BaseTester
 
         driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
         driver.Navigate().GoToUrl("https://buscacepinter.correios.com.br/app/endereco/index.php");
+
         dsl = new DSL(driver);
         // DSL.SetDriver(driver);
     }
-    #endregion
 
     // [SetUp]
     // public void IniciarTeste()
@@ -59,8 +55,8 @@ public class BaseTester
     {
         if (globalVariables.driverQuit)
         {
-            driver.Quit();
             logWriter.LogWrite("Teste finalizado");
+            driver.Quit();
         }
     }
 }
